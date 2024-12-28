@@ -4,7 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Birthday Surprise</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffe4e1;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        h1 {
+            color: #ff69b4;
+            font-size: 3em;
+            margin: 20px 0;
+            text-shadow: 2px 2px #ffa07a;
+        }
+
+        p {
+            color: #ff1493;
+            font-size: 1.2em;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .box {
+            width: 150px;
+            height: 150px;
+            background: url('https://cdn.pixabay.com/photo/2017/01/31/21/23/treasure-chest-2026992_960_720.png') no-repeat center center / cover;
+            border: 2px solid #ff1493;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .box:hover {
+            transform: scale(1.1);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .revealed {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .cartoon {
+            margin-top: 40px;
+        }
+
+        .cartoon img {
+            width: 300px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -27,6 +98,9 @@
                 <img src="/mnt/data/Screenshot 2024-12-28 232556.png" alt="Hidden Image 5" class="hidden">
             </div>
         </div>
+        <div class="cartoon">
+            <img src="https://cdn.pixabay.com/photo/2017/10/04/11/12/cute-2817527_960_720.png" alt="Cartoon Birthday">
+        </div>
     </div>
 
     <script>
@@ -35,8 +109,11 @@
         function revealImage(box) {
             if (selectedCount < 2) {
                 const img = box.querySelector('img');
-                img.classList.toggle('hidden');
-                selectedCount++;
+                if (img.classList.contains('hidden')) {
+                    img.classList.remove('hidden');
+                    img.classList.add('revealed');
+                    selectedCount++;
+                }
             } else {
                 alert("You've already selected 2 images!");
             }
