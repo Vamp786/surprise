@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Birthday Surprise!</h1>
+        <p>Choose 2 hidden treasures from the chest!</p>
+        <div class="box-container">
+            <div class="box" onclick="revealImage(this)">
+                <img src="/mnt/data/Screenshot 2024-12-28 232920.png" alt="Hidden Image 1" class="hidden">
+            </div>
+            <div class="box" onclick="revealImage(this)">
+                <img src="/mnt/data/WhatsApp Image 2024-12-28 at 23.16.56_74007b7e.jpg" alt="Hidden Image 2" class="hidden">
+            </div>
+            <div class="box" onclick="revealImage(this)">
+                <img src="/mnt/data/WhatsApp Image 2024-12-28 at 23.16.56_f65cb40f.jpg" alt="Hidden Image 3" class="hidden">
+            </div>
+            <div class="box" onclick="revealImage(this)">
+                <img src="/mnt/data/WhatsApp Image 2024-12-28 at 23.16.56_2bd34371.jpg" alt="Hidden Image 4" class="hidden">
+            </div>
+            <div class="box" onclick="revealImage(this)">
+                <img src="/mnt/data/Screenshot 2024-12-28 232556.png" alt="Hidden Image 5" class="hidden">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedCount = 0;
+
+        function revealImage(box) {
+            if (selectedCount < 2) {
+                const img = box.querySelector('img');
+                img.classList.toggle('hidden');
+                selectedCount++;
+            } else {
+                alert("You've already selected 2 images!");
+            }
+        }
+    </script>
+</body>
+</html>
